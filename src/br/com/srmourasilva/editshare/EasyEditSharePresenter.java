@@ -14,14 +14,19 @@ import br.com.srmourasilva.multistomp.zoom.gseries.ZoomGSeriesMessages;
 
 public class EasyEditSharePresenter implements OnMultistompListener {
 
-	private EasyEditShare view;
+	private View view;
 
 	private PedalController pedal;
 
-	public EasyEditSharePresenter(EasyEditShare view) {
+	public EasyEditSharePresenter(View view) {
 		this.view = view;
 	}
+	
+	public void setPedal(PedalController pedal) {
+		this.pedal = pedal;
+	}
 
+	@Deprecated
 	public void start() {
 		try {
 			this.pedal = PedalControllerFactory.searchPedal();
@@ -43,6 +48,7 @@ public class EasyEditSharePresenter implements OnMultistompListener {
 		pedal.send(ZoomGSeriesMessages.REQUEST_CURRENT_PATCH_NUMBER());
 	}
 
+	@Deprecated
 	public void stop() {
 		if (pedal != null)
 			pedal.off();
@@ -54,7 +60,7 @@ public class EasyEditSharePresenter implements OnMultistompListener {
 		messages.getBy(CommonCause.EFFECT_DISABLE).forEach(message -> updateEffect(message, CommonCause.EFFECT_DISABLE));
 
 		messages.getBy(CommonCause.TO_PATCH).forEach(message -> setPatch(message));
-		messages.getBy(CommonCause.PATCH_NAME).forEach(message -> updateTitle((String) message.details().value));
+		messages.getBy(CommonCause.PATCH_NAME).forEach(message -> updateTitle(message.details().patch, message.details().value.toString()));
 		
 		messages.getBy(CommonCause.PARAM_VALUE).forEach(message -> System.out.println(message));
 
@@ -84,8 +90,10 @@ public class EasyEditSharePresenter implements OnMultistompListener {
 		pedal.send(ZoomGSeriesMessages.REQUEST_SPECIFIC_PATCH_DETAILS(idPatch));
 	}
 
-	private void updateTitle(String newTitle) {
-		view.setTitle(newTitle);
+	private void updateTitle(int index, String value) {
+		String patch = ((char) (65 + (index / 10))) + "" + index % 10;
+		patch += " - " + value;
+		view.setTitle(patch);
 	}
 
 

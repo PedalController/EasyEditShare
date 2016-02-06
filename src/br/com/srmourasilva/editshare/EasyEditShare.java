@@ -15,7 +15,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class EasyEditShare extends Application implements EventHandler<ActionEvent> {
+@Deprecated
+public class EasyEditShare extends Application implements EventHandler<ActionEvent>, View {
 
 	public static void main(String[] args) {
 		launch(args);

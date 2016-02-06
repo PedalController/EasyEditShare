@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="600.0" style="-fx-background-color: #dddddd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView id="image_1" fitHeight="129.0" fitWidth="172.0" layoutX="14.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@null" />
+         </image>
+      </ImageView>
+      <ImageView id="image_2" fitHeight="129.0" fitWidth="172.0" layoutX="214.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@null" />
+         </image>
+      </ImageView>
+      <ImageView id="image_3" fitHeight="129.0" fitWidth="172.0" layoutX="414.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@null" />
+         </image>
+      </ImageView>
+      <ImageView id="image_6" fitHeight="129.0" fitWidth="172.0" layoutX="414.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@null" />
+         </image>
+      </ImageView>
+      <ImageView id="image_5" fitHeight="129.0" fitWidth="172.0" layoutX="214.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@null" />
+         </image>
+      </ImageView>
+      <ImageView id="image_4" fitHeight="129.0" fitWidth="172.0" layoutX="14.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@null" />
+         </image>
+      </ImageView>
+      <Button id="state_1" layoutX="14.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="OFF" />
+      <Button id="state_2" layoutX="214.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="OFF" />
+      <Button id="state_3" layoutX="414.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="OFF" />
+      <Button id="state_6" layoutX="414.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="OFF" />
+      <Button id="state_5" layoutX="214.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="OFF" />
+      <Button id="state_4" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="OFF" />
+      <Text id="bank" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="2.0" style="-fx-font-weight: bold;" text="Patch" wrappingWidth="572.13671875">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Text>
+      <Button id="before" layoutX="14.0" layoutY="412.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="261.0" text="Before" />
+      <Button id="next" layoutX="319.0" layoutY="412.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="261.0" text="Next" />
+   </children>
+</Pane>

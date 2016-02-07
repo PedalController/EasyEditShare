@@ -6,6 +6,6 @@
 			<accessrule kind="accessible" pattern="javafx/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/MultistompEditor"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MidiPedalController"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -3,14 +3,14 @@ package br.com.srmourasilva.editshare;
 import java.io.IOException;
 import java.net.URL;
 
-import javax.sound.midi.MidiUnavailableException;
-
 import br.com.srmourasilva.architecture.exception.DeviceNotFoundException;
+import br.com.srmourasilva.architecture.exception.DeviceUnavailableException;
 import br.com.srmourasilva.editshare.EasyEditShareView.OnSetPatchListener;
-import br.com.srmourasilva.editshare.view.View;
 import br.com.srmourasilva.editshare.view.Effect.OnToggleListener;
+import br.com.srmourasilva.editshare.view.View;
 import br.com.srmourasilva.multistomp.controller.PedalController;
 import br.com.srmourasilva.multistomp.controller.PedalControllerFactory;
+import br.com.srmourasilva.multistomp.zoom.ZoomG3Type;
 import br.com.srmourasilva.multistomp.zoom.gseries.ZoomGSeriesMessages;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -61,7 +61,7 @@ public class Main extends Application implements OnToggleListener, OnSetPatchLis
 	public PedalController initPedal(EasyEditSharePresenter presenter) {
 		PedalController pedal;
 		try {
-			pedal = PedalControllerFactory.searchPedal();
+			pedal = PedalControllerFactory.generateControllerFor(ZoomG3Type.class);
 		} catch (DeviceNotFoundException e) {
 			view.setTitle("Pedal not found! You connected any?");
 			return null;
@@ -72,7 +72,7 @@ public class Main extends Application implements OnToggleListener, OnSetPatchLis
 		try {
 			pedal.on();
 			
-		} catch (MidiUnavailableException e) {
+		} catch (DeviceUnavailableException e) {
 			view.setTitle("This Pedal has been used by other process program");
 			return null;
 		}

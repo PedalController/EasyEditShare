@@ -8,6 +8,7 @@ import br.com.srmourasilva.domain.message.CommonCause;
 import br.com.srmourasilva.domain.message.Messages;
 import br.com.srmourasilva.domain.message.Messages.Message;
 import br.com.srmourasilva.domain.multistomp.Effect;
+import br.com.srmourasilva.editshare.view.View;
 import br.com.srmourasilva.multistomp.controller.PedalController;
 import br.com.srmourasilva.multistomp.controller.PedalControllerFactory;
 import br.com.srmourasilva.multistomp.zoom.gseries.ZoomGSeriesMessages;

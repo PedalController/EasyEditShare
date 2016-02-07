@@ -7,7 +7,8 @@ import javax.sound.midi.MidiUnavailableException;
 
 import br.com.srmourasilva.architecture.exception.DeviceNotFoundException;
 import br.com.srmourasilva.editshare.EasyEditShareView.OnSetPatchListener;
-import br.com.srmourasilva.editshare.Effect.OnToggleListener;
+import br.com.srmourasilva.editshare.view.View;
+import br.com.srmourasilva.editshare.view.Effect.OnToggleListener;
 import br.com.srmourasilva.multistomp.controller.PedalController;
 import br.com.srmourasilva.multistomp.controller.PedalControllerFactory;
 import br.com.srmourasilva.multistomp.zoom.gseries.ZoomGSeriesMessages;

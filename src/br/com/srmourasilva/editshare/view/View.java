@@ -1,4 +1,4 @@
-package br.com.srmourasilva.editshare;
+package br.com.srmourasilva.editshare.view;
 
 public interface View {
 	void setTitle(String newTitle);	

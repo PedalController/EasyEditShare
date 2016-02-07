@@ -3,7 +3,9 @@ package br.com.srmourasilva.editshare;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.srmourasilva.editshare.Effect.OnToggleListener;
+import br.com.srmourasilva.editshare.view.Effect;
+import br.com.srmourasilva.editshare.view.View;
+import br.com.srmourasilva.editshare.view.Effect.OnToggleListener;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

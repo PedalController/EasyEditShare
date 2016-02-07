@@ -1,4 +1,4 @@
-package br.com.srmourasilva.editshare;
+package br.com.srmourasilva.editshare.view;
 
 import java.io.File;
 

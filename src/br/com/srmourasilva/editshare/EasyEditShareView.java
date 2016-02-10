@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.srmourasilva.editshare.view.Effect;
-import br.com.srmourasilva.editshare.view.View;
 import br.com.srmourasilva.editshare.view.Effect.OnToggleListener;
+import br.com.srmourasilva.editshare.view.View;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -22,6 +20,7 @@ public class EasyEditShareView implements View {
 		void before();
 	}
 
+	@SuppressWarnings("unused")
 	private Stage stage;
 	
 	private Text title;
@@ -30,6 +29,7 @@ public class EasyEditShareView implements View {
 	private Button before;
 	
 	private OnToggleListener toggleListener;
+	@SuppressWarnings("unused")
 	private OnSetPatchListener setPatchListener;
 
 	private List<Effect> effects;

@@ -1,16 +1,14 @@
 package br.com.srmourasilva.editshare;
 
-import javax.sound.midi.MidiUnavailableException;
-
-import br.com.srmourasilva.architecture.exception.DeviceNotFoundException;
 import br.com.srmourasilva.domain.message.CommonCause;
+import br.com.srmourasilva.domain.message.Details;
 import br.com.srmourasilva.domain.message.Messages;
-import br.com.srmourasilva.domain.message.Messages.Message;
+import br.com.srmourasilva.domain.message.multistomp.MultistompDetails;
+import br.com.srmourasilva.domain.message.Message;
 import br.com.srmourasilva.domain.multistomp.Effect;
 import br.com.srmourasilva.domain.multistomp.OnMultistompListener;
 import br.com.srmourasilva.editshare.view.View;
 import br.com.srmourasilva.multistomp.controller.PedalController;
-import br.com.srmourasilva.multistomp.controller.PedalControllerFactory;
 import br.com.srmourasilva.multistomp.zoom.gseries.ZoomGSeriesMessages;
 
 public class EasyEditSharePresenter implements OnMultistompListener {
@@ -33,7 +31,7 @@ public class EasyEditSharePresenter implements OnMultistompListener {
 		messages.getBy(CommonCause.EFFECT_DISABLE).forEach(message -> updateEffect(message, CommonCause.EFFECT_DISABLE));
 
 		messages.getBy(CommonCause.TO_PATCH).forEach(message -> setPatch(message));
-		messages.getBy(CommonCause.PATCH_NAME).forEach(message -> updateTitle(message.details().patch, message.details().value.toString()));
+		messages.getBy(CommonCause.PATCH_NAME).forEach(message -> updateTitle(message.details()));
 		
 		messages.getBy(CommonCause.PARAM_VALUE).forEach(message -> System.out.println(message));
 
@@ -41,8 +39,10 @@ public class EasyEditSharePresenter implements OnMultistompListener {
 	}
 
 	private void updateEffect(Message message, CommonCause cause) {
-		int patch  = message.details().patch;
-		int effect = message.details().effect;
+		MultistompDetails details = (MultistompDetails) message.details();
+		
+		int patch  = details.patch;
+		int effect = details.effect;
 
 		boolean otherPatch = patch != pedal.multistomp().getIdCurrentPatch();
 		if (otherPatch)
@@ -58,11 +58,18 @@ public class EasyEditSharePresenter implements OnMultistompListener {
 	}
 	
 	private void setPatch(Message message) {
-		int idPatch = message.details().patch;
+		MultistompDetails details = (MultistompDetails) message.details();
+		int idPatch = details.patch;
 
 		pedal.send(ZoomGSeriesMessages.REQUEST_SPECIFIC_PATCH_DETAILS(idPatch));
 	}
 
+	private void updateTitle(Details details) {
+		MultistompDetails d = (MultistompDetails) details;
+		
+		updateTitle(d.patch, d.value.toString());
+	}
+	
 	private void updateTitle(int index, String value) {
 		String patch = ((char) (65 + (index / 10))) + "" + index % 10;
 		patch += " - " + value;

@@ -9,8 +9,7 @@ import br.com.srmourasilva.editshare.EasyEditShareView.OnSetPatchListener;
 import br.com.srmourasilva.editshare.view.Effect.OnToggleListener;
 import br.com.srmourasilva.editshare.view.View;
 import br.com.srmourasilva.multistomp.controller.PedalController;
-import br.com.srmourasilva.multistomp.controller.PedalControllerFactory;
-import br.com.srmourasilva.multistomp.zoom.ZoomG3Type;
+import br.com.srmourasilva.multistomp.zoom.ZoomG3PedalController;
 import br.com.srmourasilva.multistomp.zoom.gseries.ZoomGSeriesMessages;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -61,7 +60,7 @@ public class Main extends Application implements OnToggleListener, OnSetPatchLis
 	public PedalController initPedal(EasyEditSharePresenter presenter) {
 		PedalController pedal;
 		try {
-			pedal = PedalControllerFactory.generateControllerFor(ZoomG3Type.class);
+			pedal = new ZoomG3PedalController();
 		} catch (DeviceNotFoundException e) {
 			view.setTitle("Pedal not found! You connected any?");
 			return null;
